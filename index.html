@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js" defer></script>
+    <script src="./js/app.js" defer></script>
+</head>
+<body>
+    <div class="app">
+        <div class="container const-1" style="display: block;">
+            <div class="msg pop-over-load text-animate unselectable">Hi</div>
+            <div class="msg pop-over-load text-animate unselectable">To be continue...</div>
+            <div class="msg pop-over-load text-animate unselectable">Enter name</div>
+            <div class="msg pop-over-msg-loaded unselectable wrapper">
+                <form id="resForm">
+                    <input type="text" name="name" id="name" autocomplete="off" placeholder="Enter your name...">
+                    <button class="submit" type="submit" ><span>Next</span></button>
+                </form>
+            </div>
+        </div>
+        <div class="container const-2">
+            <div class="msg pop-over-next-load text-animate unselectable put-text"></div>
+            <div class="msg pop-over-next-msg-loaded unselectable wrapper">
+                <a href="javascript:void(0)" data-toggle="Next"><span>Next</span></a>
+            </div>
+        </div>
+        <div class="container" style="position: absolute;">
+            <div class="cont-box">
+                <div class="envelope-wrapper">
+                    <div class="envelope">
+                        <div class="letter mail-out">
+                            <div class="text">
+                                <strong class="unselectable">My Dear Friend,</strong>
+                                <p class="unselectable">Something is in wait of you, it may take some time, you just need to wait for it, you may like it.</i></b></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="heart" id="activate"></div>
+                </div>
+                <div class="envelop-desc">
+                    <div class="text">
+                        <p class="unselectable">Click on the heart to read the letter.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="wrapper-x" id="video-x">
+                <video id="main-video">
+                    <source src="./videos/scare-1.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="msg unselectable wrapper">
+                <a href="javascript:void(0)" data-toggle="Next"><span>Next</span></a>
+            </div>
+        </div>
+        <div class="container">
+            <div class="error">
+                <img src="./img/icons/404-error.png" class="error-img unselectable">
+                <p class="unselectable">Sorry, This webpage is not avalible for anyone.</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        const resForm = document.getElementById("resForm");
+        resForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const name = document.getElementById("name");
+
+            if (name.value.trim() != "") {
+                name.style.boxShadow =  "0 0 0 0 #fff inset, #1de9b6 0 0 0 2px";
+
+                localStorage.setItem('name', name.value.trim());
+
+                const put_text = document.getElementsByClassName("put-text")[0];
+                put_text.innerText = `Welcome, ${localStorage.getItem("name")}`;
+
+                $(".const-1").css("display", "none");
+                $(".const-2").fadeIn(1000);
+
+                const pop_over_next_msg_loaded = $('.pop-over-next-msg-loaded');
+                const pop_over_next_load = $('.pop-over-next-load');
+
+
+                pop_over_next_load.eq(0).fadeIn();
+    
+
+                let i = 1;
+                myInterval = setInterval(() => {
+                    if (pop_over_next_load[i] != undefined) {
+                        pop_over_next_load.eq(i - 1).hide();
+                        pop_over_next_load.eq(i).fadeIn();
+                        i++;
+                    } else {
+                        pop_over_next_msg_loaded.css("visibility", "visible");
+                        pop_over_next_msg_loaded.css("opacity", "1");
+                        clearInterval(myInterval);
+                    }
+                }, 4000);
+
+                const player_active = document.getElementById("activate");
+
+                const X = document.getElementById('main-video');
+
+                X.addEventListener('loadedmetadata', () => {
+                    X.currentTime = 0;
+                });
+
+                player_active.addEventListener("click", () => {
+                    let tiktik = setTimeout(() => {
+                        const videoX = document.getElementById("video-x");
+
+                        $(".cont-box").css({
+                            "display": "none",
+                            "z-index": '-1',
+                            "position": "relative"
+                        })
+
+                        videoX.style.display = "block";
+                        X.play();
+                    }, 6500);
+                });
+
+
+                
+
+                X.addEventListener('ended', () => {
+                    window.location.href = "https://www.instagram.com/spidy1578/";
+                });
+            } else {
+                name.style.boxShadow =  "0 0 0 0 red inset, red 0 0 0 3px";
+            }
+        }); 
+
+        
+    </script>
+</body>
+</html>
