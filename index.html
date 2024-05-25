@@ -48,7 +48,7 @@
             </div>
             <div class="wrapper-x" id="video-x">
                 <video id="main-video">
-                    <source src="./videos/scare-1.mp4" type="video/mp4">
+                    <source src="./videos/scare-2.mp4" type="video/mp4">
                 </video>
             </div>
             <div class="msg unselectable wrapper">
@@ -84,7 +84,6 @@
 
 
                 pop_over_next_load.eq(0).fadeIn();
-    
 
                 let i = 1;
                 myInterval = setInterval(() => {
@@ -105,6 +104,7 @@
 
                 X.addEventListener('loadedmetadata', () => {
                     X.currentTime = 0;
+                    X.volume = 1.0;
                 });
 
                 player_active.addEventListener("click", () => {
@@ -122,9 +122,6 @@
                     }, 6500);
                 });
 
-
-                
-
                 X.addEventListener('ended', () => {
                     window.location.href = "https://www.instagram.com/spidy1578/";
                 });
@@ -133,6 +130,7 @@
             }
         }); 
 
+        
         
     </script>
 </body>
