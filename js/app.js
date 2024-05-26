@@ -72,5 +72,5 @@ $(document).ready(function() {
 
     mux1.currentTime = 0;
     mux.play();
-    mux.volume = 0.03;
+    mux.volume = 1;
 })
