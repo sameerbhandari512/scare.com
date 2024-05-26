@@ -70,7 +70,7 @@ $(document).ready(function() {
 
     mux = document.getElementById("bg-mus");
 
-    mux1.currentTime = 0;
+    // mux1.currentTime = 0;
     mux.play();
-    mux.volume = 1;
+    // mux.volume = 1;
 })
