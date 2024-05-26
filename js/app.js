@@ -5,8 +5,7 @@ $(document).ready(function() {
     const pop_over_msg_loaded = $('.pop-over-msg-loaded');
     const container = $('.container');
     const content = $('.content');
-    const yes_btn = $('#yes-btn');
-    const no_btn = $('#no-btn');
+
 
     container.eq(0).show();
     content.eq(0).css("display", "flex");
@@ -25,9 +24,14 @@ $(document).ready(function() {
         }
     }, 4000);
 
-    mux1 = document.getElementById("bg-door");
-    mux1.volume = 0.3;
+    const mux1 = document.getElementById("bg-door");
+    mux1.volume = 0.5;
 
+    
+    $("#nd").click(function(){
+        mux1.currentTime = 0;
+        mux1.play();
+    });
 
     $('a[data-toggle="Next"]').click(function() {
         $(this).parent().parent().hide();
@@ -70,7 +74,7 @@ $(document).ready(function() {
 
     mux = document.getElementById("bg-mus");
 
-    // mux1.currentTime = 0;
+    mux.currentTime = 0;
     mux.play();
-    // mux.volume = 1;
+    mux.volume = 0.2;  
 })

@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autoplay Audio</title>
+</head>
+<body>
+    <audio id="myAudio" src="./audio/2.mp4"></audio>
+    <button id="playButton">Play Audio</button>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    var audio = document.getElementById('myAudio');
+
+    // Try to play the audio
+    var playPromise = audio.play();
+
+    if (playPromise !== undefined) {
+        playPromise.then(function() {
+            console.log('Audio is playing automatically');
+        }).catch(function(error) {
+            console.log('Autoplay was prevented. Showing play button.');
+            // Autoplay was prevented. Show the play button
+            var playButton = document.getElementById('playButton');
+            playButton.style.display = 'block';
+
+            // Add click event listener to the button
+            playButton.addEventListener('click', function() {
+                audio.play();
+            });
+
+            playButton.click();
+        });
+    }
+});
+</script>

@@ -18,7 +18,7 @@
             <div class="msg pop-over-msg-loaded unselectable wrapper">
                 <form id="resForm">
                     <input type="text" name="name" id="name" autocomplete="off" placeholder="Enter your name...">
-                    <button class="submit" type="submit" ><span>Next</span></button>
+                    <button class="submit" type="submit" id="nd"><span>Next</span></button>
                 </form>
             </div>
         </div>
@@ -63,6 +63,7 @@
             </div>
         </div>
     </div>
+    <div class="full-app"></div>
     <audio src="./audio/2.mp4" id="bg-mus" loop style="visibility: hidden;"></audio>
     <audio src="./audio/door.mp3" id="bg-door" style="visibility: hidden;"></audio>
     <script>
@@ -131,7 +132,8 @@
             } else {
                 name.style.boxShadow =  "0 0 0 0 red inset, red 0 0 0 3px";
             }
-        });       
+        }); 
+        
     </script>
 </body>
 </html>
