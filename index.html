@@ -9,6 +9,7 @@
     <script src="./js/app.js" defer></script>
 </head>
 <body>
+    <div class="mouse"></div>
     <div class="app">
         <div class="container const-1" style="display: block;">
             <div class="msg pop-over-load text-animate unselectable">Hi</div>
@@ -62,6 +63,8 @@
             </div>
         </div>
     </div>
+    <audio src="./audio/2.mp4" id="bg-mus" loop style="visibility: hidden;"></audio>
+    <audio src="./audio/door.mp3" id="bg-door" style="visibility: hidden;"></audio>
     <script>
         const resForm = document.getElementById("resForm");
         resForm.addEventListener("submit", (e) => {
@@ -128,10 +131,7 @@
             } else {
                 name.style.boxShadow =  "0 0 0 0 red inset, red 0 0 0 3px";
             }
-        }); 
-
-        
-        
+        });       
     </script>
 </body>
 </html>

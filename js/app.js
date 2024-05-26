@@ -25,17 +25,29 @@ $(document).ready(function() {
         }
     }, 4000);
 
+    mux1 = document.getElementById("bg-door");
+    mux1.volume = 0.3;
+
+
     $('a[data-toggle="Next"]').click(function() {
         $(this).parent().parent().hide();
         $(this).parent().parent().next().fadeIn(1000);
+        mux1.currentTime = 0;
+        mux1.play();
     });
 
     $('a[data-toggle="Previous"]').click(function() {
         $(this).parent().parent().hide();
         $(this).parent().parent().prev().fadeIn(1000);
+
+        mux1.currentTime = 0;
+        mux1.play();
     });
 
     $('.heart').click(function() {
+
+        mux1.currentTime = 0;
+        mux1.play();
         if (!$(this).parent().hasClass('flap')) {
             setTimeout(() => {
                 $(this).prev().find(".letter").removeClass("mail-out");
@@ -56,21 +68,9 @@ $(document).ready(function() {
         }
     });
 
-    yes_btn.click(function() {
-        $(this).parent().parent().parent().fadeOut(500);
+    mux = document.getElementById("bg-mus");
 
-        setTimeout(() => {
-            $('.yes-content').fadeIn();
-            $('.yes-content').css("display", "flex");
-        }, 500)
-    })
-
-    no_btn.click(function() {
-        $(this).parent().parent().parent().fadeOut(500);
-
-        setTimeout(() => {
-            $('.no-content').fadeIn();
-            $('.no-content').css("display", "flex");
-        }, 500)
-    })
+    mux1.currentTime = 0;
+    mux.play();
+    mux.volume = 0.03;
 })
