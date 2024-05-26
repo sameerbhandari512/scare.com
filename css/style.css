@@ -6,6 +6,11 @@
     src: url('../font/gypsy.ttf');
   }
 
+  @font-face {
+    font-family: "vinque rg";
+    src: url('../font/vinque.otf');
+  }
+
 * {
     margin: 0;
     padding: 0;
@@ -290,7 +295,7 @@
 }
 
 .envelope>.letter>.text p {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana;
+    font-family: 'vinque rg', Tahoma, Geneva, Verdana;
 }
 
 .heart {
